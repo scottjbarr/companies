@@ -1,0 +1,21 @@
+runtime: go                    # the runtime (python, java, go, php)
+api_version: go1               # the runtime version
+
+inbound_services:
+- warmup
+
+handlers:
+# requests with the hello path are handled by the Go app.
+- url: /api/.*
+  script: _go_app
+
+# requests on the root path display index.html.
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+  http_headers:
+    Access-Control-Allow-Origin: "*"
+
+# otherwise we try to find the paths in the static directory..
+- url: /
+  static_dir: static

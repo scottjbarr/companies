@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Companies</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+    h1 {
+        text-align: center;
+        color: #a74;
+    }
+    </style>
+</head>
+<body>
+    <h1>Companies</h1>
+    <p>The backend says: <span id="message"></span></p>
+    <script>
+      $(function() {
+        $('#message').load('/api/companies');
+      });
+    </script>
+</body>
+</html>
